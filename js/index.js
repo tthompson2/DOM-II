@@ -1,5 +1,3 @@
-// Your code goes here
-
 var mouseEvent = document.addEventListener('mouseover', () => {
 
     let aTag = document.querySelectorAll('a');
@@ -23,16 +21,20 @@ var wheelEvent = document.addEventListener('wheel', () => {
 
 var dropEvent = document.addEventListener('drop', () => {
 
+
     
 });
 
 var loadEvent = document.addEventListener('load', (event) => {
 
+    alert("This message is displayed because the page fully loaded!");
      
 });
 
 
 var resizeEvent = document.addEventListener('resize', () => {
+
+    
 
 });
 
@@ -42,7 +44,7 @@ var scrollEvent = document.addEventListener('scroll', () => {
 
 });
 
-var selectEvent = document.addEventListener('select', () = {
+var selectEvent = document.addEventListener('select', () => {
 
 });
 
