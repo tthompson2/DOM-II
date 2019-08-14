@@ -26,9 +26,19 @@ var wheelEvent = window.addEventListener('wheel', () => {
 });
 
 
-var dropEvent = document.addEventListener('drop', () => {
+var dropEvent = document.addEventListener('drop', (event) => {
 
+   // This function below is used to negate the default behavior of the HTML element, which is important
+   // if the default properties of the element were interactive!
 
+   event.preventDefault();
+
+   if (event.target.className == 'dropZone') // need to find or create equivalent to this for this application
+   {
+       event.target.style.background = '';
+       //need to figure out what the parent node in this case is. Have to study the HTML and figure it out.
+       //event.target.appendChild (varaible referenced line above needs to referenced here)
+  }
     
 });
 
