@@ -1,4 +1,4 @@
-var mouseEvent = document.addEventListener('mouseover', () => {
+givar mouseEvent = document.addEventListener('mouseover', () => {
 
     let aTag = document.querySelectorAll('a');
     aTag.forEach((element) => {
@@ -70,20 +70,28 @@ var scrollEvent = document.addEventListener('scroll', () => {
     let selectedP = document.querySelectorAll('p');
     selectedP.forEach((element) => {
 
-    event.target.style.color = purple;
+    event.target.backgroundColor = 'purple';
     });
 
 });
 
-var selectEvent = document.addEventListener('select', () => {
+const selectCallback = ((event) => {
 
+    const containerElement = document.getElementsByTagName('container nav-container');
+    containerElement.textContent = 'You selected: h1';
+
+    console.log(containerElement.textContent);
+
+    alert(containerElement.textContent);
 });
+
+var selectEvent = document.addEventListener('select', (selectCallback));
 
 var dbClickEvent = document.addEventListener('dbClick', (event) => {
 
     let newText = document.querySelectorAll('h2');
     newText.forEach((element) => {
 
-        element.textContent = 'Twiced clicked';
+    element.textContent = 'Twiced clicked';
     });
 });
