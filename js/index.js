@@ -1,4 +1,4 @@
-givar mouseEvent = document.addEventListener('mouseover', () => {
+var mouseEvent = document.addEventListener('mouseover', () => {
 
     let aTag = document.querySelectorAll('a');
     aTag.forEach((element) => {
@@ -52,6 +52,7 @@ var loadEvent = document.addEventListener('load', (event) => {
 
 var focusEvent = document.addEventListener('focus', (event) => {
 
+    document.getElementById('h2').focus({preventScroll: true});
     event.target.style.background = 'red';
 
 });
@@ -61,7 +62,15 @@ var blurEvent = document.addEventListener('blur', (event) => {
     event.target.style.background = ' ';
 });
 
-var resizeEvent = document.addEventListener('resize', () => {    
+var resizeEvent = window.addEventListener('resize', () => {
+
+    widthElement = document.createElement('p');
+    heightElement = document.createElement('p');
+
+    widthElement.textContent = window.innerWidth;
+    heightElement.textContent = window.innerHeight;
+
+    console.log('width: ' + widthElement.textContent + ' height: ' + heightElement.textContent);  
 
 });
 
@@ -95,3 +104,55 @@ var dbClickEvent = document.addEventListener('dbClick', (event) => {
     element.textContent = 'Twiced clicked';
     });
 });
+
+var dragged;
+
+/* events fired on the draggable target */
+document.addEventListener("drag", function(event) {
+
+}, false);
+
+document.addEventListener("dragstart", function(event) {
+  // store a ref. on the dragged elem
+  dragged = event.target;
+  // make it half transparent
+  event.target.style.opacity = .5;
+}, false);
+
+document.addEventListener("dragend", function(event) {
+  // reset the transparency
+  event.target.style.opacity = "";
+}, false);
+
+/* events fired on the drop targets */
+document.addEventListener("dragover", function(event) {
+  // prevent default to allow drop
+  event.preventDefault();
+}, false);
+
+document.addEventListener("dragenter", function(event) {
+  // highlight potential drop target when the draggable element enters it
+  if (event.target.className == "dropzone") {
+    event.target.style.background = "purple";
+  }
+
+}, false);
+
+document.addEventListener("dragleave", function(event) {
+  // reset background of potential drop target when the draggable element leaves it
+  if (event.target.className == "p") {
+    event.target.style.background = "";
+  }
+
+}, false);
+
+document.addEventListener("drop", function(event) {
+  // prevent default action (open as link for some elements)
+  event.preventDefault();
+  // move dragged elem to the selected drop target
+  if (event.target.className == "p") {
+    event.target.style.background = "";
+    dragged.parentNode.removeChild( dragged );
+    event.target.appendChild( dragged );
+  }
+}, false);
