@@ -1,4 +1,4 @@
-var mouseEvent = document.addEventListener('mouseover', () => {
+let mouseEvent = document.addEventListener('mouseover', () => {
 
     let aTag = document.querySelectorAll('a');
     aTag.forEach((element) => {
@@ -7,7 +7,7 @@ var mouseEvent = document.addEventListener('mouseover', () => {
 
 });
 
-var keyDown = document.addEventListener('keydown', (event) => {
+let keyDown = document.addEventListener('keydown', (event) => {
 
     if (event.keyCode === 65)
     {
@@ -20,13 +20,13 @@ var keyDown = document.addEventListener('keydown', (event) => {
     }*/
 });
 
-var wheelEvent = window.addEventListener('wheel', () => {
+let wheelEvent = window.addEventListener('wheel', () => {
 
     alert("You're scrolling your mouse wheel");
 });
 
 
-var dropEvent = document.addEventListener('drop', (event) => {
+let dropEvent = document.addEventListener('drop', (event) => {
 
    // This function below is used to negate the default behavior of the HTML element, which is important
    // if the default properties of the element were interactive!
@@ -44,25 +44,25 @@ var dropEvent = document.addEventListener('drop', (event) => {
 
 // Okay, this isn't working, and I don't understand why
 
-var loadEvent = document.addEventListener('load', (event) => {
+let loadEvent = window.addEventListener('load', (event) => {
 
-    console.log("This message is displayed because the page fully loaded!");
+    alert("This message is displayed because the page fully loaded!");
      
 });
 
-var focusEvent = document.addEventListener('focus', (event) => {
+let fbEvent = document.getElementById('h2');
 
-    document.getElementById('h2').focus({preventScroll: true});
+fbEvent.addEventListener('focus', (event) => {
     event.target.style.background = 'red';
 
 });
 
-var blurEvent = document.addEventListener('blur', (event) => {
+ fBEvent = document.addEventListener('blur', (event) => {
 
     event.target.style.background = ' ';
 });
 
-var resizeEvent = window.addEventListener('resize', () => {
+let resizeEvent = window.addEventListener('resize', () => {
 
     widthElement = document.createElement('p');
     heightElement = document.createElement('p');
@@ -74,7 +74,7 @@ var resizeEvent = window.addEventListener('resize', () => {
 
 });
 
-var scrollEvent = document.addEventListener('scroll', () => {
+let scrollEvent = document.addEventListener('scroll', () => {
 
     let selectedP = document.querySelectorAll('p');
     selectedP.forEach((element) => {
@@ -94,9 +94,9 @@ const selectCallback = ((event) => {
     alert(containerElement.textContent);
 });
 
-var selectEvent = document.addEventListener('select', (selectCallback));
+let selectEvent = document.addEventListener('select', (selectCallback));
 
-var dbClickEvent = document.addEventListener('dbClick', (event) => {
+let dbClickEvent = document.addEventListener('dbClick', (event) => {
 
     let newText = document.querySelectorAll('h2');
     newText.forEach((element) => {
@@ -105,7 +105,7 @@ var dbClickEvent = document.addEventListener('dbClick', (event) => {
     });
 });
 
-var dragged;
+let  dragged;
 
 /* events fired on the draggable target */
 document.addEventListener("drag", function(event) {
