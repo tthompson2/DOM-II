@@ -26,40 +26,12 @@ let wheelEvent = window.addEventListener('wheel', () => {
 });
 
 
-let dropEvent = document.addEventListener('drop', (event) => {
-
-   // This function below is used to negate the default behavior of the HTML element, which is important
-   // if the default properties of the element were interactive!
-
-   event.preventDefault();
-
-   if (event.target.className == 'dropZone') // need to find or create equivalent to this for this application
-   {
-       event.target.style.background = '';
-       //need to figure out what the parent node in this case is. Have to study the HTML and figure it out.
-       //event.target.appendChild (varaible referenced line above needs to referenced here)
-  }
-    
-});
-
 // Okay, this isn't working, and I don't understand why
 
 let loadEvent = window.addEventListener('load', (event) => {
 
     alert("This message is displayed because the page fully loaded!");
      
-});
-
-let fbEvent = document.getElementById('h2');
-
-fbEvent.addEventListener('focus', (event) => {
-    event.target.style.background = 'red';
-
-});
-
- fBEvent = document.addEventListener('blur', (event) => {
-
-    event.target.style.background = ' ';
 });
 
 let resizeEvent = window.addEventListener('resize', () => {
@@ -96,63 +68,35 @@ const selectCallback = ((event) => {
 
 let selectEvent = document.addEventListener('select', (selectCallback));
 
-let dbClickEvent = document.addEventListener('dbClick', (event) => {
+const newText = document.querySelectorAll(".btn");
 
-    let newText = document.querySelectorAll('h2');
-    newText.forEach((element) => {
+newText.forEach(element => {
 
-    element.textContent = 'Twiced clicked';
-    });
+element.addEventListener('dblclick', (event) => {
+
+   alert("Twice Clicked");
+  
+  });
 });
 
-let  dragged;
+/* These eventListener functions aren't completed yet. */
 
-/* events fired on the draggable target */
-document.addEventListener("drag", function(event) {
+let onlineChecker = window.addEventListener('online', (event) => {
 
-}, false);
+  alert("The user is now connected to the network");
 
-document.addEventListener("dragstart", function(event) {
-  // store a ref. on the dragged elem
-  dragged = event.target;
-  // make it half transparent
-  event.target.style.opacity = .5;
-}, false);
+});
 
-document.addEventListener("dragend", function(event) {
-  // reset the transparency
-  event.target.style.opacity = "";
-}, false);
+/*let fbEvent = document.querySelector("header");
 
-/* events fired on the drop targets */
-document.addEventListener("dragover", function(event) {
-  // prevent default to allow drop
-  event.preventDefault();
-}, false);
+console.log(fBEvent);
 
-document.addEventListener("dragenter", function(event) {
-  // highlight potential drop target when the draggable element enters it
-  if (event.target.className == "dropzone") {
-    event.target.style.background = "purple";
-  }
+fbEvent.addEventListener('focus', (event) => {
+    event.target.style.background = 'red';
 
-}, false);
+});
 
-document.addEventListener("dragleave", function(event) {
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.className == "p") {
-    event.target.style.background = "";
-  }
+ fBEvent = document.addEventListener('blur', (event) => {
 
-}, false);
-
-document.addEventListener("drop", function(event) {
-  // prevent default action (open as link for some elements)
-  event.preventDefault();
-  // move dragged elem to the selected drop target
-  if (event.target.className == "p") {
-    event.target.style.background = "";
-    dragged.parentNode.removeChild( dragged );
-    event.target.appendChild( dragged );
-  }
-}, false);
+    event.target.style.background = ' ';
+});*/
