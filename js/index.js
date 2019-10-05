@@ -20,20 +20,12 @@ let keyDown = document.addEventListener('keydown', (event) => {
     {
         alert("The 'A'|'a' key is being pressed");
     }
-    // Figure out why that logic doesn't work together
-    /*else if(event.keycode === 66)
-    {
-        alert("The B | b key is being pressed");
-    }*/
 });
 
 let wheelEvent = window.addEventListener('wheel', () => {
 
     alert("You're scrolling your mouse wheel");
 });
-
-
-// Okay, this isn't working, and I don't understand why
 
 let loadEvent = window.addEventListener('load', (event) => {
 
@@ -58,22 +50,10 @@ let scrollEvent = document.addEventListener('scroll', () => {
     let selectedP = document.querySelectorAll('p');
     selectedP.forEach((element) => {
 
-    event.target.backgroundColor = 'purple';
+    element.target.backgroundColor = 'purple';
     });
 
 });
-
-const selectCallback = ((event) => {
-
-    const containerElement = document.getElementsByTagName('container nav-container');
-    containerElement.textContent = 'You selected: h1';
-
-    console.log(containerElement.textContent);
-
-    alert(containerElement.textContent);
-});
-
-let selectEvent = document.addEventListener('select', (selectCallback));
 
 const newText = document.querySelectorAll(".btn");
 
