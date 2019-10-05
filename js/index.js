@@ -7,6 +7,13 @@ let mouseEvent = document.addEventListener('mouseover', () => {
 
 });
 
+let clickEvent = document.addEventListener('click', event => {
+
+   let bodyTag = document.querySelector('body');
+   bodyTag.style.color ='red';
+
+});
+
 let keyDown = document.addEventListener('keydown', (event) => {
 
     if (event.keyCode === 65)
