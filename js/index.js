@@ -2,6 +2,7 @@ let mouseEvent = document.addEventListener('mouseover', () => {
 
     let aTag = document.querySelectorAll('a');
     aTag.forEach((element) => {
+        element.stopPropagation
         element.style.color = 'green';
     });
 
@@ -60,7 +61,7 @@ const newText = document.querySelectorAll(".btn");
 newText.forEach(element => {
 
 element.addEventListener('dblclick', (event) => {
-
+ 
    alert("Twice Clicked");
   
   });
@@ -72,6 +73,7 @@ mouseMove.forEach(element => {
 
     element.addEventListener('auxclick', (event => {
 
+        event.stopPropagation();
         event.style.color = 'brown';
     }));
 });
@@ -82,10 +84,17 @@ mouseUp.forEach(element => {
 
     element.addEventListener('mouseup', event => {
 
+        event.stopPropagation();
         event.style.color = 'green';
     });
 })
 
+const preventNavigation = document.querySelectorAll('a');
+
+preventNavigation.forEach(element => {
+
+    element.preventDefault();
+})
 
 /* These eventListener functions aren't completed yet. */
 
@@ -94,17 +103,3 @@ let onlineChecker = window.addEventListener('online', (event) => {
   alert("The user is now connected to the network");
 
 });
-
-/*let fbEvent = document.querySelector("header");
-
-console.log(fBEvent);
-
-fbEvent.addEventListener('focus', (event) => {
-    event.target.style.background = 'red';
-
-});
-
- fBEvent = document.addEventListener('blur', (event) => {
-
-    event.target.style.background = ' ';
-});*/
