@@ -66,6 +66,27 @@ element.addEventListener('dblclick', (event) => {
   });
 });
 
+const mouseMove = document.querySelectorAll('a');
+
+mouseMove.forEach(element => {
+
+    element.addEventListener('auxclick', (event => {
+
+        event.style.color = 'brown';
+    }));
+});
+
+const mouseUp = document.querySelectorAll('p');
+
+mouseUp.forEach(element => {
+
+    element.addEventListener('mouseup', event => {
+
+        event.style.color = 'green';
+    });
+})
+
+
 /* These eventListener functions aren't completed yet. */
 
 let onlineChecker = window.addEventListener('online', (event) => {
